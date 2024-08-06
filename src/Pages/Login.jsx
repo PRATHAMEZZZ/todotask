@@ -5,8 +5,8 @@ import { login } from "../Redux/slices/authSlice";
 import { useDispatch } from "react-redux";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin");
+  const [password, setPassword] = useState("admin");
   const [error, setError] = useState([
     {
       name: "email",
