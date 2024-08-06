@@ -161,42 +161,45 @@ export default function TableList({
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableBody>
               {pendingRow.map((ele, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell align="left">
-                    <Checkbox
-                      onChange={(e) => onHandleCheck(e, ele, index)}
-                      checked={false}
-                      sx={{ height: "10px" }}
-                    />
-                    {ele?.task}{" "}
-                  </TableCell>
-                  <TableCell align="right">
-                    <StarIcon
-                      sx={{
-                        cursor: "pointer",
-                        "&:hover": {
-                          color: "#9c27af",
-                        },
-                      }}
-                      color={ele.priority ? "secondary" : "inherit"}
-                      onClick={() => onHandlePriority(ele, index)}
-                    />
-                    <DeleteForeverIcon
-                      sx={{
-                        cursor: "pointer",
-                        ml: 2,
-                        color: "inherit",
-                        "&:hover": {
-                          color: "red",
-                        },
-                      }}
-                      onClick={() => onHandleDelete(index, "pending")}
-                    />
-                  </TableCell>
-                </TableRow>
+                <>
+                  <TableRow
+                    key={index}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell align="left">
+                      <Checkbox
+                        onChange={(e) => onHandleCheck(e, ele, index)}
+                        checked={false}
+                        sx={{ height: "10px" }}
+                      />
+                      {ele?.task}{" "}
+                    </TableCell>
+                    <TableCell align="right">
+                      <StarIcon
+                        sx={{
+                          cursor: "pointer",
+                          "&:hover": {
+                            color: "#9c27af",
+                          },
+                        }}
+                        color={ele.priority ? "secondary" : "inherit"}
+                        onClick={() => onHandlePriority(ele, index)}
+                      />
+                      <DeleteForeverIcon
+                        sx={{
+                          cursor: "pointer",
+                          ml: 2,
+                          color: "inherit",
+                          "&:hover": {
+                            color: "red",
+                          },
+                        }}
+                        onClick={() => onHandleDelete(index, "pending")}
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <Divider />
+                </>
               ))}
             </TableBody>
           </Table>
@@ -223,39 +226,42 @@ export default function TableList({
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableBody>
               {completeRow.map((ele, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell
-                    align="left"
-                    sx={{ textDecoration: "line-through" }}
+                <>
+                  <TableRow
+                    key={index}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <Checkbox
-                      onChange={(e) => onHandleCheck(e, ele, index)}
-                      checked={true}
-                      sx={{ height: "10px" }}
-                    />
-                    {ele.task}{" "}
-                  </TableCell>
-                  <TableCell align="right">
-                    <StarIcon
-                      sx={{ cursor: "pointer" }}
-                      color={ele.priority ? "secondary" : "inherit"}
-                    />
-                    <DeleteForeverIcon
-                      sx={{
-                        cursor: "pointer",
-                        ml: 2,
-                        color: "inherit",
-                        "&:hover": {
-                          color: "red",
-                        },
-                      }}
-                      onClick={() => onHandleDelete(index, "complete")}
-                    />
-                  </TableCell>
-                </TableRow>
+                    <TableCell
+                      align="left"
+                      sx={{ textDecoration: "line-through" }}
+                    >
+                      <Checkbox
+                        onChange={(e) => onHandleCheck(e, ele, index)}
+                        checked={true}
+                        sx={{ height: "10px" }}
+                      />
+                      {ele.task}{" "}
+                    </TableCell>
+                    <TableCell align="right">
+                      <StarIcon
+                        sx={{ cursor: "pointer" }}
+                        color={ele.priority ? "secondary" : "inherit"}
+                      />
+                      <DeleteForeverIcon
+                        sx={{
+                          cursor: "pointer",
+                          ml: 2,
+                          color: "inherit",
+                          "&:hover": {
+                            color: "red",
+                          },
+                        }}
+                        onClick={() => onHandleDelete(index, "complete")}
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <Divider />
+                </>
               ))}
             </TableBody>
           </Table>
